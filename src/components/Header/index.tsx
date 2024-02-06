@@ -30,7 +30,7 @@ export default function Header() {
             Accusantium aliquid deleniti earum error expedita, incidunt nisi
             pariatur.
           </p>
-          <button>Contact</button>
+          <button className="button">Resume</button>
         </div>
         <div>
           <img

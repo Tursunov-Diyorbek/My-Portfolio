@@ -1,12 +1,21 @@
+import React, { useState } from "react";
 import styles from "./index.module.sass";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
 import Header from "../Header/index";
+import Projects from "../Projects/index";
 
 export default function HomePage() {
+  const [active, setActive] = useState<number>(0);
+  const [swiper, setSwiper] = useState<Swiper | null>(null);
+
+  const handleNavItemClick = (index: number) => {
+    swiper?.slideTo(index);
+  };
+
   return (
     <div style={{ display: "flex" }}>
       <div className={styles.navber}>
@@ -26,27 +35,40 @@ export default function HomePage() {
         </h3>
 
         <ul>
-          <li>Contact</li>
-          <li>Projects</li>
-          <li>Home</li>
+          <li
+            style={{ color: active === 2 ? "#7f00ff" : "#fff" }}
+            onClick={() => handleNavItemClick(2)}
+          >
+            Contact
+          </li>
+          <li
+            style={{ color: active === 1 ? "#7f00ff" : "#fff" }}
+            onClick={() => handleNavItemClick(1)}
+          >
+            Projects
+          </li>
+          <li
+            style={{ color: active === 0 ? "#7f00ff" : "#fff" }}
+            onClick={() => handleNavItemClick(0)}
+          >
+            Home
+          </li>
         </ul>
-
-        {/* <CgMenuRight className={styles.navber__menuIcon}/> */}
       </div>
       <div style={{ width: "100%" }}>
         <Swiper
-          direction={"vertical"}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
+          direction="vertical"
+          onSwiper={(swiperInstance) => setSwiper(swiperInstance)}
+          onSlideChange={(e) => setActive(e.activeIndex)}
           className={styles.swiper}
         >
-          <SwiperSlide className={styles.swiper__slide}>
+          <SwiperSlide>
             <Header />
           </SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide>
+            <Projects />
+          </SwiperSlide>
+          <SwiperSlide>vjbh</SwiperSlide>
         </Swiper>
       </div>
     </div>

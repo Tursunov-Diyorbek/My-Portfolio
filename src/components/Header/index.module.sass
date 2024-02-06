@@ -6,11 +6,13 @@
   @extend %root
   @include container
   color: var(--white)
-  height: 400px
   display: flex
   align-items: center
+  height: 100%
   @media (max-width: 767px)
-    display: block
+    flex-direction: column
+    justify-content: center
+    text-align: center
 
   div:nth-child(1)
     width: 50%
@@ -21,29 +23,22 @@
     font-weight: 900
     font-size: clamp(2rem, 0.3043rem + 3.4783vw, 3rem)
     color: #3d535f
+    @media (max-width: 767px)
+      font-size: 17px
 
     span
       color: #7f00ff
       text-transform: capitalize
 
   p
-    color: #666
-    line-height: 23px
+    color: #ffffff89
+    line-height: 27px
     margin: 20px 0
+    font-weight: 900
     max-width: 500px
-
-  button
-    padding: 10px 30px
-    font-weight: 700
-    border-radius: 6px
-    border: none
-    cursor: pointer
-    background: #4070f4
-    color: var(--white)
-    transition: 0.2s
-
-    &:hover
-      box-shadow: 0 0 0 4px #212121, 0 0 0 8px #4070f4
+    @media (max-width: 767px)
+      line-height: 15px
+      font-size: 10px
 
   div:nth-child(2)
     width: 50%
@@ -55,14 +50,12 @@
       margin-top: 50px
 
   &__myPhoto
-    width: 350px
-    height: 350px
+    width: 60%
     box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.87)
     animation: animate 6s ease-in-out infinite
     transition: all 2s ease-in-out
     @media (max-width: 991px)
-      width: 250px
-      height: 250px
+      width: 80%
 
 @keyframes animate
   0%
