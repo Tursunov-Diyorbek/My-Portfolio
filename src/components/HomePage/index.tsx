@@ -7,10 +7,11 @@ import "swiper/css/scrollbar";
 
 import Header from "../Header/index";
 import Projects from "../Projects/index";
+import Footer from "../Footer/index";
 
 export default function HomePage() {
   const [active, setActive] = useState<number>(0);
-  const [swiper, setSwiper] = useState<Swiper | null>(null);
+  const [swiper, setSwiper] = useState<any>(null);
 
   const handleNavItemClick = (index: number) => {
     swiper?.slideTo(index);
@@ -68,7 +69,9 @@ export default function HomePage() {
           <SwiperSlide>
             <Projects />
           </SwiperSlide>
-          <SwiperSlide>vjbh</SwiperSlide>
+          <SwiperSlide>
+            <Footer />
+          </SwiperSlide>
         </Swiper>
       </div>
     </div>
