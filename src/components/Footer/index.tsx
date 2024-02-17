@@ -50,14 +50,14 @@ const Footer: React.FC = () => {
           <div>
             <a
               className="image"
-              href="https://codepen.io/z-"
+              // href="https://codepen.io/z-"
               target="_blank"
               style={{
                 backgroundImage:
                   "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg')",
               }}
             ></a>
-            <p>©2019 Not Really</p>
+            <p>©2024 Not Really</p>
           </div>
         </div>
       </div>
